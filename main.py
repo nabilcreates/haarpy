@@ -50,6 +50,11 @@ while True:
     # show the image (first is the window name, second is the source)
     cv2.imshow('nice', img)
 
+    if str(argv[2]).lower == 'true':
+        cv2.imwrite('output.png', img)
+
+        print('SAVED IMAGE AS OUTPUT.PNG')
+
     # conventional way to quit the program by pressing q
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break

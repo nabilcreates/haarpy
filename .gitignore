@@ -2,3 +2,4 @@ test*
 bin/
 lib*
 pyvenv.cfg
+output*

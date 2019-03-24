@@ -1,23 +1,15 @@
 # Documentation
-> Read more on Haar Cascade here: https://docs.opencv.org/3.4.3/d7/d8b/tutorial_py_face_detection.html
+## video-test branch
+-   ### lets the facial recognition run on a video file
 
-## Usage: `python3 main.py <input_image:image> <save_image?:boolean>`
+## Usage: `python3 main.py <input_video:video>`
 
--   input_image
-    -   The input image that wants to be detected for faces
-        -   can be any type of image that is a jpeg or png (others are not tested yet)
+Video lags!
+-   If you are a developer:
+    -   Change the scaleFactor and the minNeighbors on line 50 on the draw_box function (which is the 3rd and 4th argument)
+        -   decreasing the minNeighbors will decrease lag
+        -   increasing the scaleFactor will decrease lag
+            -   ### NOTE THAT THIS TAKES A TOLL ON THE ACCURACY OF THE FACE DETECTION
 
-    -   save_image?
-        -   gives the option to save the output image
-            -   either be a boolean (true or false)
-
--   What will happen?
-    -   A pop-up box will appear showing the input images with red rectangles around every face it detects
-
-## What have i learned?
--   opencv2
-    -   how to display image and stuff
--   haar cascade
-    -   needing to convert to grayscale
-    -   scaleFactor and what will happen if there is no scaleFactor
-    -   minNeighbors
+-   If you are just a normal person:
+    -   The computer is trying to detect faces in realtime, so please be patient (a.k.a suck it up)

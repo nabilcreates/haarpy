@@ -2,7 +2,7 @@ import cv2
 from sys import argv
 
 # Set thei input image to be a image given as an argument when running the program
-input_image = cv2.imread(argv[1])
+input_video = cv2.VideoCapture(argv[1])
 
 # load the classifier or the cascade (dataset)
 face_classifier = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
@@ -40,23 +40,23 @@ def draw_box(img, classifier, scaleFactor, minNeighbors, color):
 # runs in a loop
 while True:
 
-    # img is the input_image we gave
-    img = input_image
+    # img is the input_video we gave
+    _, img = input_video.read()
     
-    # draw_box is the function we defined on top
-    # color is in a tuple: (b,g,r)
-    draw_box(img, face_classifier, 1.3, 10, (0,0,255))
+    # _ returns a boolean whether the video is playing or not
+    if _ is True:
+        # draw_box is the function we defined on top
+        # color is in a tuple: (b,g,r)
+        draw_box(img, face_classifier, 1.5, 2, (0,0,255))
 
-    # show the image (first is the window name, second is the source)
-    cv2.imshow('nice', img)
+        # show the image (first is the window name, second is the source)
+        cv2.imshow('nice', img)
 
-    if str(argv[2]).lower == 'true':
-        cv2.imwrite('output.png', img)
-
-        print('SAVED IMAGE AS OUTPUT.PNG')
-
-    # conventional way to quit the program by pressing q
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+        # conventional way to quit the program by pressing q
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+    else:
         break
 
+input_video.release()
 cv2.destroyAllWindows()
